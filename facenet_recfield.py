@@ -29,7 +29,7 @@ parser.add_argument('--layers', nargs='+',
           'InceptionResnetV1/Conv2d_2b_3x3/convolution:0',
           'InceptionResnetV1/Conv2d_4a_3x3/convolution:0',
           'InceptionResnetV1/Conv2d_4b_3x3/convolution:0',
-          'InceptionResnetV1/Repeat/block35_1/add:0',
+          'InceptionResnetV1/Repeat/block35_1/add:0'])
 parser.add_argument('--print_all_names', action='store_true',
     help='Print the names of all tensors to choose from and exit.')
 parser.add_argument('--batch_size', type=int, default=128,

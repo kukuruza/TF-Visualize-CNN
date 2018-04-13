@@ -34,7 +34,7 @@ parser.add_argument('--layers', nargs='+',
           'InceptionResnetV1/Conv2d_2b_3x3/convolution:0',
           'InceptionResnetV1/Conv2d_4a_3x3/convolution:0',
           'InceptionResnetV1/Conv2d_4b_3x3/convolution:0',
-          'InceptionResnetV1/Repeat/block35_1/add:0',
+          'InceptionResnetV1/Repeat/block35_1/add:0'])
 parser.add_argument('--out_dir', type=str, default='/tmp/facenet_activations',
     help='Output directory for visualizations.')
 parser.add_argument('--logging_level', type=int, choices={10,20,30,40,50},

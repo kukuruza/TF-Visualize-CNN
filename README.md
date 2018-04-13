@@ -15,12 +15,13 @@ For each filter we visualize top 5 image patches.
 ### Installation
 ```
 # Clone this repo if you have not yet.
-git clone https://github.com/kukuruza/strongest_conv_activations
-TF_VISUALIZE_DIR=$(pwd)/strongest_conv_activations
+git clone https://github.com/kukuruza/TF-Visualize-CNN
+TF_VISUALIZE_DIR=$(pwd)/TF-Visualize-CNN
 
 # Install prerequisites.
 pip install opencv-python
 pip install progressbar2
+pip install tensorflow-gpu  # Or without a gpu.
 ```
 
 ### Example: cifar10
@@ -69,18 +70,18 @@ tar -xzf lfw.tgz
 # Compute images that get the highest response on 5 different layers.
 # The output will be at /tmp/facenet_activations/
 cd $TF_VISUALIZE_DIR
-python facenet_activations.py --facenet_dir $FACENET_DIR --model_path $FACENET_DIR/20170512-110547.pb --lfw_dir $FACENET_DIR/lfw
+python facenet_activations.py --facenet_dir $FACENET_DIR --model_path $FACENET_DIR/20170512-110547/20170512-110547.pb --lfw_dir $FACENET_DIR/lfw
 ```
 
 **Optional**: If you want to pick layers yourself, you can study the network graph.
 To do that you can export the graph to logs and visualize it in TensorBoard:
 ```
 # Generate logs to visualize the network graph on Tensorboard.
-python utils/generate_logs.py --model 20170512-110547 --logdir 20170512-110547/logs
+python utils/generate_logs.py --model $FACENET_DIR/20170512-110547 --logdir $FACENET_DIR/20170512-110547/logs
 
 # Note that the graph shows tf operation names. In this network architecture,
 # operation "my/op" outputs tensor with name "my/op:0".
-tensorboard --logdir 20170512-110547/logs
+tensorboard --logdir $FACENET_DIR/20170512-110547/logs
 ```
 
 Layer `Conv2d_2b`:
@@ -130,7 +131,7 @@ This algorithm is described in the next section.
 
 Compute receptive field for each pixel of a selected layer in a CNN.
 We will compute receptive fields fully automatically for any network architecture.
-The examples are a cut version of the examples in the previous section.
+The examples below are a cut version of the examples in the previous section.
 
 ### Example: cifar10
 
@@ -160,7 +161,7 @@ unzip 20170512-110547.zip
 
 # Compute receptive field for five layers.
 cd $TF_VISUALIZE_DIR
-python facenet_recfield.py --facenet_dir $FACENET_DIR --model_path 20170512-110547/20170512-110547.pb
+python facenet_recfield.py --model_path $FACENET_DIR/20170512-110547/20170512-110547.pb
 ```
 
 **Optional**: If you want to pick layers yourself, you can study the network graph.
