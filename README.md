@@ -1,7 +1,12 @@
+This repo provides two functionalities:
+
+1. Visualize strongest neuron activations. That is, find patches in input images that make specified neurons in a specified layer fire the most.
+2. Compute receptive field for any layer. That is, how big of an area each neuron in that layer can see from the input image.
+
 # Visualizing strongest activations
 
-This repo implements one way to visualze what a convolutional network has learned.
-It finds images that make network neurons fire the most.
+Here, I implement one way to visualize what a convolutional network has learned.
+It finds images that make specified neurons in specified layers fire the most.
 
 Let's say we are interested in what the [FaceNet](https://github.com/davidsandberg/facenet) model has learned.
 We look at how filters in some convolutional layers fire
